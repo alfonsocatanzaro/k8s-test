@@ -1,0 +1,1 @@
+﻿docker build -t acatanzaro/frontend:v1 -f ./frontend/Dockerfile .
