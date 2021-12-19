@@ -2,14 +2,14 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name:  MYAPP
+  name:  my-app
   namespace: default
   labels:
-    app:  MYAPP
+    app:  my-app
 spec:
   selector:
     matchLabels:
-      app: MYAPP
+      app: my-app
   replicas: 1
   strategy:
     rollingUpdate:
@@ -19,14 +19,14 @@ spec:
   template:
     metadata:
       labels:
-        app:  MYAPP
+        app:  my-app
     spec:
       # initContainers:
         # Init containers are exactly like regular containers, except:
           # - Init containers always run to completion.
           # - Each init container must complete successfully before the next one starts.
       containers:
-      - name:  MYAPP
+      - name:  my-app
         image:  acatanzaro/frontend:v1
         resources:
           requests:
@@ -56,11 +56,11 @@ spec:
         # - name: DB_HOST
         #   valueFrom:
         #     configMapKeyRef:
-        #       name: MYAPP
+        #       name: my-app
         #       key: DB_HOST
         ports:
         - containerPort:  80
-          name:  MYAPP
+          name:  my-app
         volumeMounts:
         - name: localtime
           mountPath: /etc/localtime
